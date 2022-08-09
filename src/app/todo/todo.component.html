@@ -1,0 +1,47 @@
+<div class="Container">
+  <form #filterForm="ngForm">
+    <input
+      class="filter"
+      name="Filter"
+      placeholder="Filter to-dos"
+      ngModel
+      (input)="filterTasks(filterForm)"
+    />
+  </form>
+
+  <h1 *ngIf="displayCongrats()">All tasks are completed!</h1>
+  <div class="wholeTask" *ngFor="let t of getFilter(); index as i">
+    <div class="taskDisplay">
+      <p [ngClass]="t.completed ? 'CompletedTask' : ''">
+        <button *ngIf="t.completed == false" (click)="completeTask(i)">
+          Complete
+        </button>
+        {{ i + 1 }}. {{ t.task }}
+      </p>
+      <button (click)="removeTask(i)">x</button>
+    </div>
+
+    <form #editForm="ngForm" (ngSubmit)="editTask(editForm, i)">
+      <input
+        class="largeInput"
+        name="Task"
+        id="Task"
+        placeholder="Edit your to-do"
+        ngModel
+      />
+      <button class="largeButton">Edit To-Do</button>
+    </form>
+  </div>
+  <form class="taskDisplay" #todoForm="ngForm" (ngSubmit)="addTodo(todoForm)">
+    <!-- <label for="Task">Enter a task</label> -->
+
+    <input
+      class="largeInput"
+      name="Task"
+      id="Task"
+      placeholder="Add your to-do"
+      ngModel
+    />
+    <button class="largeButton">Add To-Do</button>
+  </form>
+</div>

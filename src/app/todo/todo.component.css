@@ -1,0 +1,41 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.CompletedTask{
+    text-decoration: line-through;
+}
+
+.Container{
+    width: 60%;
+    margin: auto;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.taskDisplay{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.wholeTask{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.largeInput{
+    width: 80%;
+}
+
+.largeButton{
+    width: 20%;
+}
+
+.filter{
+    width: 100%;
+}
